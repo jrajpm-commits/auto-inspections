@@ -1,0 +1,238 @@
+{
+  "capabilities": {
+    "cap1": {
+      "title": "Multi-Source Data Fusion",
+      "description": "This capability integrates data from multiple sources to create a unified safety view. It's the foundation of the safety ecosystem.",
+      "formula": "Real-time data ingestion from N sources = Σ(sensor_i × weight_i + camera_j × confidence_j + process_k × frequency_k)",
+      "whyThisFormula": "Weighted sum ensures important sources contribute more. Time-synchronization prevents data mismatches.",
+      "dataSources": "IoT sensors (temperature, pressure, vibration), CCTV/thermal cameras, SCADA/PLC systems, maintenance logs, environmental monitors.",
+      "whereToGetData": "Sensors deployed throughout facility, existing camera infrastructure, process control systems, maintenance databases.",
+      "whatToGetFrom": "Real-time readings, historical patterns, calibration status, equipment metadata, location information.",
+      "logic": "Correlation of disparate data reveals hidden patterns. Multiple sources provide redundancy if one fails.",
+      "otherLogic": "Could use Bayesian networks, federated learning across sites, or edge processing before cloud aggregation.",
+      "purpose": "Eliminate data silos, enable holistic safety monitoring, detect complex multi-factor hazards."
+    },
+    "cap2": {
+      "title": "Human-in-Loop Decision Support",
+      "description": "AI recommendations with human validation, creating a symbiotic relationship between automation and human judgment.",
+      "formula": "Decision Score = (AI_confidence × 0.6) + (Human_validation × 0.3) + (Historical_accuracy × 0.1)",
+      "whyThisFormula": "60% weight to AI ensures efficiency, 30% to human maintains oversight, 10% to history provides learning.",
+      "dataSources": "AI model outputs, operator decisions, incident reports, safety protocols, regulatory requirements.",
+      "whereToGetData": "Machine learning models, decision logs, operator interfaces, compliance databases, audit trails.",
+      "whatToGetFrom": "Confidence scores, override reasons, decision times, outcome feedback, learning patterns.",
+      "logic": "Human oversight prevents AI errors. AI handles routine decisions, humans handle exceptions.",
+      "otherLogic": "Could use consensus voting among multiple operators, or risk-based thresholds for automation levels.",
+      "purpose": "Balance safety with efficiency, maintain human accountability, create auditable decision trails."
+    },
+    "cap3": {
+      "title": "Proactive Environmental Conversion",
+      "description": "Automated systems that detect hazards and convert environments to safe states before incidents occur.",
+      "formula": "Conversion Efficiency = (Hazards_prevented ÷ Hazards_detected) × (1 ÷ Response_time_seconds) × Resource_efficiency",
+      "whyThisFormula": "Measures both success rate and speed while accounting for resource usage. Multiplicative ensures all factors matter.",
+      "dataSources": "Hazard detectors, environmental sensors, control system status, energy consumption logs, maintenance records.",
+      "whereToGetData": "Real-time monitoring systems, actuator feedback, power meters, HVAC controls, safety equipment logs.",
+      "whatToGetFrom": "Hazard types and locations, system response times, environmental parameters, energy usage, success confirmations.",
+      "logic": "Automated response is faster than human reaction. Multiple systems work in orchestration for comprehensive protection.",
+      "otherLogic": "Could use predictive triggering based on patterns, or staged responses that escalate based on severity.",
+      "purpose": "Transform reactive safety to proactive prevention, reduce incident severity, minimize downtime."
+    },
+    "cap4": {
+      "title": "Performance Continuity Management",
+      "description": "Continuous optimization ensuring safety, quality, and availability metrics remain within acceptable ranges over time.",
+      "formula": "Continuity Index = ∏(Safety^0.35 × Quality^0.25 × Availability^0.20 × Efficiency^0.20)",
+      "whyThisFormula": "Geometric product (∏) means any metric at zero makes whole index zero - all aspects are essential.",
+      "dataSources": "KPI dashboards, incident databases, quality control records, uptime logs, cost tracking systems.",
+      "whereToGetData": "Business intelligence systems, manufacturing execution systems, quality management software, financial systems.",
+      "whatToGetFrom": "Trend data, benchmark comparisons, improvement rates, cost-benefit analyses, predictive indicators.",
+      "logic": "Continuous small improvements prevent large failures. Interconnected metrics reveal systemic issues.",
+      "otherLogic": "Could use control theory feedback loops, or game theory for optimizing multiple stakeholders.",
+      "purpose": "Ensure long-term safety culture, optimize resource allocation, demonstrate ROI on safety investments."
+    }
+  },
+  "cards": {
+    "sensor": {
+      "title": "Environmental Sensors Card",
+      "description": "Monitors physical working conditions that affect both safety and productivity.",
+      "formula": "Safety Score = 100 - Σ|Actual_i - Ideal_i| ÷ Range_i × Weight_i",
+      "whyThisFormula": "Absolute deviation from ideal normalized by range, weighted by importance of each parameter.",
+      "dataSources": "Temperature sensors, humidity sensors, air quality monitors, lux meters, sound level meters.",
+      "whereToGetData": "Deployed IoT network, building management system, portable monitoring devices.",
+      "whatToGetFrom": "Current readings, historical trends, calibration status, location context, alert thresholds.",
+      "logic": "Comfortable workers are safer workers. Environmental extremes cause stress and errors.",
+      "otherLogic": "Could use comfort indices like PMV, or predictive models based on weather forecasts.",
+      "purpose": "Prevent environmental hazards, optimize working conditions, reduce fatigue-related incidents."
+    },
+    "vision": {
+      "title": "Computer Vision Card",
+      "description": "AI-powered visual analysis for real-time safety compliance monitoring.",
+      "formula": "PPE Compliance = (Correct_PPE_instances ÷ Total_person_instances) × 100",
+      "whyThisFormula": "Simple percentage captures compliance rate. Instance-based prevents gaming the system.",
+      "dataSources": "CCTV cameras, thermal imaging, depth sensors, edge computing devices, alert logs.",
+      "whereToGetData": "Existing security cameras, specialized safety cameras, mobile device feeds, drone footage.",
+      "whatToGetFrom": "Person detection, PPE classification, posture analysis, restricted area intrusion, unusual activity.",
+      "logic": "Visual monitoring scales better than human supervisors. Objective measurement eliminates bias.",
+      "otherLogic": "Could use privacy-preserving techniques like silhouette analysis, or federated learning for multi-site.",
+      "purpose": "Ensure PPE compliance, detect unsafe behaviors, monitor restricted areas, provide evidence for investigations."
+    },
+    "process": {
+      "title": "Process Data Card",
+      "description": "Real-time monitoring of equipment and operational parameters for predictive safety.",
+      "formula": "Equipment Health = 100 - Σ(Normalized_deviation_i × Criticality_i)",
+      "whyThisFormula": "Weighted sum of deviations, with critical equipment having higher weight in overall score.",
+      "dataSources": "PLC data, SCADA systems, vibration sensors, thermography, energy monitors, maintenance logs.",
+      "whereToGetData": "Process control systems, equipment sensors, maintenance management software, energy management systems.",
+      "whatToGetFrom": "Operating parameters, cycle counts, energy consumption, vibration patterns, temperature profiles.",
+      "logic": "Equipment failures cause safety incidents. Predictive maintenance prevents unexpected failures.",
+      "otherLogic": "Could use digital twin simulations, or physics-based models for failure prediction.",
+      "purpose": "Prevent equipment-related incidents, optimize maintenance schedules, reduce unexpected downtime."
+    },
+    "decision": {
+      "title": "Decision Matrix Card",
+      "description": "Tracks AI recommendations and human overrides for transparent decision audit trails.",
+      "formula": "Decision Quality = (Correct_decisions ÷ Total_decisions) × 100",
+      "whyThisFormula": "Simple accuracy metric. Can be weighted by decision importance or consequences.",
+      "dataSources": "AI model outputs, operator inputs, decision logs, outcome tracking, feedback mechanisms.",
+      "whereToGetData": "Decision support interface, operator consoles, incident management system, learning database.",
+      "whatToGetFrom": "Recommendation details, confidence scores, override reasons, decision times, outcome data.",
+      "logic": "Transparent decision-making builds trust. Learning from overrides improves AI over time.",
+      "otherLogic": "Could use A/B testing of decisions, or multi-armed bandit algorithms for optimization.",
+      "purpose": "Balance automation with human judgment, create auditable decision trails, improve AI through feedback."
+    },
+    "control": {
+      "title": "Environmental Control Card",
+      "description": "Automated systems that adjust physical environment to maintain safety conditions.",
+      "formula": "Control Efficiency = (Setpoint_achievement ÷ Energy_used) × System_availability",
+      "whyThisFormula": "Multiplicative ensures all factors matter - can't optimize one at expense of others.",
+      "dataSources": "Actuator positions, sensor feedback, energy meters, system status indicators, maintenance records.",
+      "whereToGetData": "HVAC controls, lighting systems, ventilation equipment, emergency systems, power monitors.",
+      "whatToGetFrom": "Current state vs target, response times, energy consumption, system health, maintenance needs.",
+      "logic": "Automated control responds faster than humans. Integrated systems prevent conflicting actions.",
+      "otherLogic": "Could use model predictive control, or reinforcement learning for adaptive optimization.",
+      "purpose": "Maintain safe working environment, respond automatically to hazards, optimize energy usage."
+    },
+    "grade": {
+      "title": "System Grading Card",
+      "description": "Quantitative assessment of safety system performance across multiple dimensions.",
+      "formula": "Overall Grade = Weighted_average(Safety×0.35, Data_quality×0.25, Completeness×0.20, Response×0.10, Learning×0.10)",
+      "whyThisFormula": "Safety gets highest weight (35%) as primary goal. Learning gets weight to encourage improvement.",
+      "dataSources": "All system metrics, incident reports, audit findings, user feedback, benchmark data.",
+      "whereToGetData": "Aggregated from all capabilities, external benchmarks, regulatory standards, historical performance.",
+      "whatToGetFrom": "Component scores, trend data, comparison benchmarks, improvement opportunities, root causes.",
+      "logic": "Quantitative grading enables objective comparison. Multi-dimensional prevents gaming single metric.",
+      "otherLogic": "Could use geometric mean, or minimum acceptable levels across all dimensions.",
+      "purpose": "Provide actionable performance metrics, enable benchmarking, drive continuous improvement."
+    }
+  },
+  "grades": {
+    "safetyScore": {
+      "title": "Safety Score (A-)",
+      "description": "Comprehensive measure of overall safety performance across personnel, environment, and equipment.",
+      "formula": "Safety Score = 0.35×Personnel + 0.25×Environmental + 0.20×Equipment + 0.15×Compliance + 0.10×Response",
+      "whyThisFormula": "Personnel safety weighted highest (35%) as most important. Response gets 10% to value quick action.",
+      "dataSources": "Incident reports, near-miss logs, safety observations, audit findings, sensor alerts, training records.",
+      "whereToGetData": "EHS software, incident management systems, safety committee minutes, regulatory reports, sensor networks.",
+      "whatToGetFrom": "Incident frequency and severity, hazard identification rates, compliance percentages, response times.",
+      "logic": "Leading indicators (proactive) weighted with lagging indicators (reactive) for balanced view.",
+      "otherLogic": "Could use Industry benchmarks (TRIR, DART), or risk-based weighting (high-risk areas count more).",
+      "purpose": "Measure safety culture effectiveness, identify improvement areas, track progress over time."
+    },
+    "dataQuality": {
+      "title": "Data Quality (B+)",
+      "description": "Assessment of reliability, completeness, and timeliness of safety data used for decisions.",
+      "formula": "Data Quality = 0.25×Accuracy + 0.20×Completeness + 0.20×Timeliness + 0.15×Consistency + 0.10×Validity + 0.10×Reliability",
+      "whyThisFormula": "Accuracy weighted highest (25%) as most critical for decisions. All aspects contribute to overall quality.",
+      "dataSources": "Sensor calibration records, data validation logs, system uptime reports, correlation analyses, audit trails.",
+      "whereToGetData": "Data validation systems, sensor management platforms, system monitoring tools, quality control databases.",
+      "whatToGetFrom": "Calibration status, missing data rates, data latency, cross-validation results, system availability.",
+      "logic": "Garbage in, garbage out. Quality decisions require quality data. Multi-dimensional assessment prevents bias.",
+      "otherLogic": "Could use Information Quality frameworks (IQM), or statistical measures like signal-to-noise ratio.",
+      "purpose": "Ensure decisions based on reliable information, identify data collection gaps, maintain system credibility."
+    },
+    "completeness": {
+      "title": "Completeness (C)",
+      "description": "Measure of how comprehensively the safety system monitors all areas, hazards, and time periods.",
+      "formula": "Completeness = (Area_coverage + Hazard_coverage + Time_coverage + Process_coverage + Personnel_coverage) ÷ 5",
+      "whyThisFormula": "Simple average of coverage areas. Equal weighting assumes all aspects equally important.",
+      "dataSources": "System configuration maps, coverage audits, risk assessments, maintenance schedules, personnel tracking.",
+      "whereToGetData": "Facility layouts, sensor deployment plans, risk registers, work schedules, access control systems.",
+      "whatToGetFrom": "Monitored vs total area, detected hazard types, 24/7 coverage percentage, process coverage, personnel inclusion.",
+      "logic": "Blind spots create risk. Comprehensive coverage ensures no area, hazard, or time period is unprotected.",
+      "otherLogic": "Could use risk-weighted coverage (high-risk areas weighted more), or criticality-based assessment.",
+      "purpose": "Identify monitoring gaps, prioritize expansion areas, ensure comprehensive protection."
+    }
+  },
+  "dashboard": {
+    "thresholds": {
+      "title": "Human-in-Loop Threshold Settings",
+      "description": "Configurable parameters determining when system acts autonomously vs requesting human input.",
+      "formula": "Autonomy Level = f(Severity, Confidence, Complexity, Time_available)",
+      "whyThisFormula": "Multi-factor decision: High severity + high confidence + low complexity + limited time = higher autonomy.",
+      "dataSources": "Historical incident data, operator performance metrics, system confidence scores, response time requirements.",
+      "whereToGetData": "Decision logs, incident databases, operator assessment tools, system performance metrics, regulatory requirements.",
+      "whatToGetFrom": "Risk levels, confidence scores, decision complexity assessments, available response times, regulatory limits.",
+      "logic": "Balance safety (human oversight) with efficiency (automation). Dynamic thresholds adapt to conditions.",
+      "otherLogic": "Could use adaptive thresholds based on time of day, workload, or operator fatigue levels.",
+      "purpose": "Optimize human-machine collaboration, prevent automation overload, maintain appropriate oversight."
+    },
+    "workflow": {
+      "title": "Decision Workflow",
+      "description": "Step-by-step process from hazard detection to resolution, ensuring consistent response.",
+      "formula": "Workflow Efficiency = (Steps_completed ÷ Total_steps) × (1 ÷ Average_step_time)",
+      "whyThisFormula": "Considers both completeness (all steps done) and speed (time per step).",
+      "dataSources": "Process logs, timing measurements, decision records, escalation trails, outcome tracking.",
+      "whereToGetData": "Workflow management systems, process mining tools, time tracking, audit trails, outcome databases.",
+      "whatToGetFrom": "Step completion rates, time between steps, decision points, escalation paths, outcomes.",
+      "logic": "Standardized workflows ensure consistency. Measured steps enable optimization.",
+      "otherLogic": "Could use process mining to discover actual vs designed workflows, or simulation for optimization.",
+      "purpose": "Ensure consistent safety responses, identify process bottlenecks, enable continuous improvement."
+    },
+    "conversion": {
+      "title": "Hazard-to-Safe Conversion",
+      "description": "Process of automatically transforming hazardous conditions into safe environments.",
+      "formula": "Conversion Efficiency = (Successful_conversions ÷ Attempted_conversions) × (Safe_time ÷ Total_time)",
+      "whyThisFormula": "Considers both success rate and duration of safe state. Product ensures both matter.",
+      "dataSources": "Hazard detection logs, system action records, environmental monitoring, maintenance reports, energy usage.",
+      "whereToGetData": "Incident management systems, control system logs, environmental sensors, energy management systems.",
+      "whatToGetFrom": "Hazard types and locations, system responses, environmental changes, response times, energy costs.",
+      "logic": "Automated conversion is faster than human response. Multiple systems work in coordination.",
+      "otherLogic": "Could measure conversion quality (how safe), or resource efficiency (cost per conversion).",
+      "purpose": "Prevent incidents through proactive intervention, minimize hazard duration, optimize resource usage."
+    },
+    "kpi": {
+      "title": "KPI Scorecards",
+      "description": "Key Performance Indicators tracking safety, quality, and availability metrics.",
+      "formula": "KPI Score = (Current_value ÷ Target_value) × 100, capped at 100%",
+      "whyThisFormula": "Percentage of target achieved, with cap preventing over-achievement in one area masking under-achievement elsewhere.",
+      "dataSources": "Performance metrics, target settings, historical data, benchmark comparisons, improvement plans.",
+      "whereToGetData": "Business intelligence systems, performance management software, regulatory reports, industry benchmarks.",
+      "whatToGetFrom": "Current performance levels, target values, trends over time, benchmark comparisons, improvement rates.",
+      "logic": "What gets measured gets managed. Balanced scorecard prevents optimization of one metric at expense of others.",
+      "otherLogic": "Could use statistical process control limits, or dynamic targets based on capability.",
+      "purpose": "Track performance against goals, identify improvement areas, demonstrate safety ROI."
+    },
+    "prediction": {
+      "title": "Predictive Analytics",
+      "description": "Forecasting future safety incidents and system performance based on historical patterns.",
+      "formula": "Risk Probability = f(Historical_frequency, Current_trends, External_factors, System_condition)",
+      "whyThisFormula": "Multi-factor prediction combines internal data with external context for more accurate forecasts.",
+      "dataSources": "Historical incident data, trend analysis, external data (weather, market), system health metrics, maintenance schedules.",
+      "whereToGetData": "Incident databases, trend analysis tools, external data feeds, system monitoring, maintenance planning.",
+      "whatToGetFrom": "Historical patterns, current trends, external risk factors, system readiness, predictive confidence intervals.",
+      "logic": "Past patterns predict future events. Multiple data sources improve prediction accuracy.",
+      "otherLogic": "Could use machine learning models, or causal inference for root cause prediction.",
+      "purpose": "Enable proactive prevention, optimize resource allocation, improve planning accuracy."
+    },
+    "optimization": {
+      "title": "Continuous Optimization Loop",
+      "description": "System that continuously improves safety performance through measurement, analysis, and adjustment.",
+      "formula": "Improvement Rate = (New_performance ÷ Old_performance) ÷ Time_period",
+      "whyThisFormula": "Measures rate of improvement normalized by time. Accounts for both magnitude and speed of improvement.",
+      "dataSources": "Performance metrics before/after changes, implementation logs, cost data, feedback mechanisms, learning records.",
+      "whereToGetData": "Performance tracking systems, change management logs, cost accounting, feedback systems, learning databases.",
+      "whatToGetFrom": "Baseline performance, post-change performance, implementation costs, learning outcomes, improvement sustainability.",
+      "logic": "Continuous small improvements outperform occasional large changes. Closed-loop system ensures learning.",
+      "otherLogic": "Could use control theory for stability, or reinforcement learning for adaptive optimization.",
+      "purpose": "Drive continuous safety improvement, optimize resource allocation, embed learning into operations."
+    }
+  }
+}
